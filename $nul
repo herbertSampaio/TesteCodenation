@@ -1,0 +1,36 @@
+FAIL src/__tests__/validation.test.js (33.592s)
+  ● Console
+
+    console.error node_modules/react/cjs/react.development.js:217
+      Warning: Each child in an array or iterator should have a unique "key" prop.
+      
+      Check the render method of `App`. See https://fb.me/react-warning-keys for more information.
+          in RecipeItem (at App.js:45)
+          in App (created by WrapperComponent)
+          in WrapperComponent
+
+  ● App › BONUS: Highlight search term
+
+    Method “text” is only meant to be run on a single node. 0 found instead.
+
+      64 |     const wrapper = mount(<App />);
+      65 |     wrapper.find('Navbar input').simulate('change', { target: { value: searchString } })
+    > 66 |     expect(wrapper.find('RecipeItem mark').at(0).text()).toEqual(searchString);
+         |                                                  ^
+      67 |   });
+      68 | });
+      69 | 
+
+      at ReactWrapper.single (node_modules/enzyme/build/ReactWrapper.js:1638:17)
+      at ReactWrapper.text (node_modules/enzyme/build/ReactWrapper.js:846:21)
+      at Object.text (src/__tests__/validation.test.js:66:50)
+
+PASS src/components/App.test.js
+PASS src/components/RecipeItem.test.js
+PASS src/components/Navbar.test.js
+
+Test Suites: 1 failed, 3 passed, 4 total
+Tests:       1 failed, 14 passed, 15 total
+Snapshots:   0 total
+Time:        62.54s
+Ran all test suites.
